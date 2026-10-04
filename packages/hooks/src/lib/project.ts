@@ -1,7 +1,7 @@
 // Project identity from the filesystem only: no `git` process (Part D.2 forbids blocking
 // spawns). Reads .git, HEAD, packed-refs and config directly.
 import { existsSync, readFileSync, statSync } from "node:fs";
-import { dirname, join, resolve } from "node:path";
+import { dirname, join, posix, resolve, win32 } from "node:path";
 import { sha256 } from "./spool.js";
 import { redactText } from "./redact.js";
 
@@ -14,7 +14,9 @@ export interface ProjectInfo {
 
 /** Normalize separators and, on case-insensitive platforms, case (Rule A10). */
 export function canonicalPath(p: string, platform: NodeJS.Platform = process.platform): string {
-  let out = resolve(p).replace(/\\/g, "/");
+  // Resolve with the target platform's rules, not the host's, so the result does not
+  // depend on where it is computed.
+  let out = (platform === "win32" ? win32.resolve(p) : posix.resolve(p)).replace(/\\/g, "/");
   if (out.startsWith("//?/")) out = out.slice(4);
   if (out.length > 1 && out.endsWith("/")) out = out.slice(0, -1);
   return platform === "win32" || platform === "darwin" ? out.toLowerCase() : out;

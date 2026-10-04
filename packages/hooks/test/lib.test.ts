@@ -47,8 +47,9 @@ describe("snapshot HMAC", () => {
 describe("project identity", () => {
   it("normalizes paths per platform", () => {
     expect(canonicalPath("C:\\Repo\\Src\\", "win32")).toBe("c:/repo/src");
-    // resolve() is host-specific, so the POSIX case only runs on POSIX hosts.
-    if (process.platform !== "win32") expect(canonicalPath("/Users/A/Repo", "darwin")).toBe("/users/a/repo");
+    expect(canonicalPath("/Users/A/Repo", "darwin")).toBe("/users/a/repo");
+    expect(canonicalPath("/home/a/Repo/", "linux")).toBe("/home/a/Repo");
+    expect(canonicalPath("\\\\?\\C:\\Repo", "win32")).toBe("c:/repo");
   });
 
   it("reads HEAD, packed refs, origin and worktree layouts without git", () => {

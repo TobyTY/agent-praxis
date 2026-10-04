@@ -184,7 +184,7 @@ import { join as join4 } from "node:path";
 
 // src/lib/project.ts
 import { existsSync as existsSync3, readFileSync, statSync as statSync2 } from "node:fs";
-import { dirname, join as join3, resolve as resolve2 } from "node:path";
+import { dirname, join as join3, posix, resolve as resolve2, win32 } from "node:path";
 
 // src/lib/redact.ts
 import { createHash as createHash2 } from "node:crypto";
@@ -407,7 +407,7 @@ var SENSITIVE_EXCEPT = REDACTION_RULES.sensitive_path_exceptions.map(globToRegEx
 
 // src/lib/project.ts
 function canonicalPath(p, platform = process.platform) {
-  let out = resolve2(p).replace(/\\/g, "/");
+  let out = (platform === "win32" ? win32.resolve(p) : posix.resolve(p)).replace(/\\/g, "/");
   if (out.startsWith("//?/")) out = out.slice(4);
   if (out.length > 1 && out.endsWith("/")) out = out.slice(0, -1);
   return platform === "win32" || platform === "darwin" ? out.toLowerCase() : out;
