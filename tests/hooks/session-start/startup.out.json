@@ -1,0 +1,14 @@
+{
+  "exit": 0,
+  "stdout": null,
+  "spool": {
+    "kinds": [
+      "session_start"
+    ],
+    "contains": [
+      "\"source\":\"startup\"",
+      "\"project_id\":\"prj_",
+      "\"model\":\"claude-opus-5\""
+    ]
+  }
+}

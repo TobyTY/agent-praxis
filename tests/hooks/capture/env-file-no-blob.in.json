@@ -1,0 +1,15 @@
+{
+  "description": "edits to .env files are recorded without content",
+  "args": [
+    "tool_ok"
+  ],
+  "stdin": {
+    "session_id": "s1",
+    "tool_name": "Edit",
+    "tool_input": {
+      "file_path": "/proj/.env",
+      "old_string": "A=1",
+      "new_string": "A=2"
+    }
+  }
+}

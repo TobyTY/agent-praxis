@@ -1,0 +1,14 @@
+{
+  "exit": 0,
+  "stdout": null,
+  "spool": {
+    "contains": [
+      "\"sensitive\":true",
+      "\"blob\":null"
+    ],
+    "excludes": [
+      "A=2"
+    ]
+  },
+  "blobs": 0
+}

@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/TobyTY/agent-praxis/schemas/candidate.schema.json",
+  "title": "Candidate",
+  "description": "Distiller output (Part H.3). Used from Phase 1.",
+  "type": "object",
+  "required": ["should_create"],
+  "properties": {
+    "should_create": { "type": "boolean" },
+    "reason": { "type": "string" },
+    "slug": { "type": "string" },
+    "description": { "type": "string" },
+    "scope": { "type": "object" },
+    "when": { "type": "array", "items": { "type": "string" } },
+    "procedure": { "type": "array", "items": { "type": "string" } },
+    "missing_fact": { "type": "string" },
+    "rules": { "type": "array", "items": { "$ref": "#/$defs/CandidateRule" } },
+    "assertions": { "type": "array", "items": { "type": "object" } },
+    "triggers": { "type": "array", "items": { "type": "string" } }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "CandidateRule": {
+      "type": "object",
+      "required": ["text", "provenance_turns"],
+      "properties": {
+        "text": { "type": "string" },
+        "provenance_turns": { "type": "array", "items": { "type": "integer" } }
+      },
+      "additionalProperties": false
+    }
+  }
+}

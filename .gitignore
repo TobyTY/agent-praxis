@@ -1,0 +1,16 @@
+node_modules/
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.hypothesis/
+.coverage
+coverage/
+dist-py/
+*.egg-info/
+.DS_Store
+Thumbs.db
+# local Praxis homes created by experiments
+.praxis/

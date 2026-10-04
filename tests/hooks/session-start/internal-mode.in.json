@@ -1,0 +1,10 @@
+{
+  "description": "PRAXIS_MODE=internal (Praxis's own claude -p) exits immediately",
+  "env": {
+    "PRAXIS_MODE": "internal"
+  },
+  "stdin": {
+    "session_id": "s1",
+    "source": "startup"
+  }
+}

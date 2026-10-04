@@ -1,0 +1,18 @@
+{
+  "description": "Write payload is stored as a blob for replay state",
+  "args": [
+    "tool_ok"
+  ],
+  "stdin": {
+    "session_id": "s1",
+    "tool_name": "Write",
+    "tool_use_id": "t3",
+    "tool_input": {
+      "file_path": "C:\\proj\\src\\a.ts",
+      "content": "export const a = 1;\n"
+    },
+    "tool_response": {
+      "type": "create"
+    }
+  }
+}

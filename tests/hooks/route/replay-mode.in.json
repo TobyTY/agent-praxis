@@ -1,0 +1,10 @@
+{
+  "description": "replay mode turns capture and routing off",
+  "env": {
+    "PRAXIS_MODE": "replay"
+  },
+  "stdin": {
+    "session_id": "s1",
+    "prompt": "add a dependency for date parsing"
+  }
+}

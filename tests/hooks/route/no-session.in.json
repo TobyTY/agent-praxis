@@ -1,0 +1,6 @@
+{
+  "description": "input without session_id is ignored",
+  "stdin": {
+    "prompt": "add a dependency for date parsing"
+  }
+}

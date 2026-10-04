@@ -1,0 +1,10 @@
+{
+  "name": "praxis",
+  "version": "0.0.1",
+  "description": "Praxis: verified procedural memory for coding agents. Captures sessions locally (redacted) for the praxis CLI.",
+  "author": { "name": "Kushal Tandon" },
+  "homepage": "https://github.com/TobyTY/agent-praxis",
+  "repository": "https://github.com/TobyTY/agent-praxis",
+  "license": "Apache-2.0",
+  "keywords": ["procedural-memory", "agent-skills", "security"]
+}

@@ -1,0 +1,13 @@
+{
+  "description": "praxis not on PATH: logs and exits 0",
+  "env": {
+    "PRAXIS_NO_SPAWN": "0",
+    "PATH": "",
+    "Path": "",
+    "PRAXIS_BIN": ""
+  },
+  "stdin": {
+    "session_id": "s1",
+    "reason": "other"
+  }
+}

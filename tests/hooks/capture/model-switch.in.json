@@ -1,0 +1,12 @@
+{
+  "description": "model_switch kind is ready for when PostModelSwitch is registered",
+  "args": [
+    "model_switch"
+  ],
+  "stdin": {
+    "session_id": "s1",
+    "from_model": "claude-sonnet-5",
+    "to_model": "claude-opus-5",
+    "source": "command"
+  }
+}

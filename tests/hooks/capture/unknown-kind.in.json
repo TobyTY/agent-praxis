@@ -1,0 +1,9 @@
+{
+  "description": "unknown capture kind is ignored",
+  "args": [
+    "nope"
+  ],
+  "stdin": {
+    "session_id": "s1"
+  }
+}

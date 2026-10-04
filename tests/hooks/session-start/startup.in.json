@@ -1,0 +1,9 @@
+{
+  "description": "spools session_start with project id; no output without cards",
+  "stdin": {
+    "session_id": "s1",
+    "hook_event_name": "SessionStart",
+    "source": "startup",
+    "model": "claude-opus-5"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "exit": 0,
+  "stdout": null,
+  "spool": {
+    "kinds": [
+      "session_start",
+      "audit",
+      "session_start"
+    ]
+  }
+}

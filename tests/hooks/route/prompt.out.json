@@ -1,0 +1,14 @@
+{
+  "exit": 0,
+  "stdout": null,
+  "spool": {
+    "kinds": [
+      "prompt"
+    ],
+    "contains": [
+      "add a dependency for date parsing",
+      "\"prompt_id\":\"p1\"",
+      "\"routable\":true"
+    ]
+  }
+}

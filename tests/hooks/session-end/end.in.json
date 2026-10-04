@@ -1,0 +1,7 @@
+{
+  "description": "spools session_end; ingest spawn suppressed in tests",
+  "stdin": {
+    "session_id": "s1",
+    "reason": "prompt_input_exit"
+  }
+}

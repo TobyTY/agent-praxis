@@ -1,0 +1,8 @@
+{
+  "description": "announces verified procedures when the snapshot has cards",
+  "setup": "with_cards",
+  "stdin": {
+    "session_id": "s1",
+    "source": "startup"
+  }
+}

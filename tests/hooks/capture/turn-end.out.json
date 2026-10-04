@@ -1,0 +1,12 @@
+{
+  "exit": 0,
+  "stdout": null,
+  "spool": {
+    "kinds": [
+      "turn_end"
+    ],
+    "contains": [
+      "I switched the install to pnpm because n… [48 more chars]"
+    ]
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "name": "agent-praxis",
+  "description": "Praxis: verified procedural memory for coding agents.",
+  "owner": { "name": "Kushal Tandon" },
+  "plugins": [
+    {
+      "name": "praxis",
+      "source": "./plugin",
+      "description": "Captures Claude Code sessions locally (redacted) so the praxis CLI can learn verified procedures."
+    }
+  ]
+}

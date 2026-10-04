@@ -1,0 +1,20 @@
+{
+  "description": "MCP tool calls record the server provenance",
+  "args": [
+    "tool_ok"
+  ],
+  "stdin": {
+    "session_id": "s1",
+    "tool_name": "mcp__github__search",
+    "tool_input": {
+      "query": "is:open"
+    },
+    "mcp_server": {
+      "name": "github",
+      "source": "user"
+    },
+    "tool_response": {
+      "items": []
+    }
+  }
+}

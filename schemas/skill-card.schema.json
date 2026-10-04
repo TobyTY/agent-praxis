@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/TobyTY/agent-praxis/schemas/skill-card.schema.json",
+  "title": "SkillCardSidecar",
+  "description": "The praxis.json sidecar next to a materialized SKILL.md (Part E.1).",
+  "type": "object",
+  "required": ["id", "version", "status", "tier", "origin", "scope", "triggers", "capabilities", "provenance", "evidence", "edges"],
+  "properties": {
+    "id": { "type": "string" },
+    "version": { "type": "integer" },
+    "status": { "type": "string", "enum": ["candidate", "probation", "active", "retired", "quarantined", "rejected"] },
+    "tier": { "type": "string", "enum": ["T0", "T1", "T2", "T3"] },
+    "origin": { "type": "string", "enum": ["learned", "authored", "imported"] },
+    "scope": { "$ref": "#/$defs/CardScope" },
+    "triggers": { "type": "array", "items": { "type": "string" } },
+    "capabilities": { "type": "array", "items": { "type": "string" } },
+    "provenance": { "type": "object" },
+    "evidence": { "type": ["object", "null"] },
+    "edges": { "$ref": "#/$defs/CardEdges" }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "CardScope": {
+      "type": "object",
+      "required": ["kind"],
+      "properties": {
+        "kind": { "type": "string", "enum": ["path", "project", "user", "global"] },
+        "project_id": { "type": "string" },
+        "paths": { "type": "array", "items": { "type": "string" } }
+      },
+      "additionalProperties": false
+    },
+    "CardEdges": {
+      "type": "object",
+      "required": [],
+      "properties": {
+        "conflicts": { "type": "array", "items": { "type": "string" } },
+        "supersedes": { "type": "array", "items": { "type": "string" } },
+        "requires": { "type": "array", "items": { "type": "string" } }
+      },
+      "additionalProperties": false
+    }
+  }
+}

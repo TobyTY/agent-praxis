@@ -1,0 +1,13 @@
+{
+  "exit": 0,
+  "stdout": null,
+  "spool": {
+    "kinds": [
+      "tool_fail"
+    ],
+    "contains": [
+      "\"exit\":1",
+      "lockfile mismatch"
+    ]
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "comment": "Canonical JSON parity cases shared by core/tests/test_canonical.py and packages/hooks/test/canonical.test.ts.",
+  "cases": [
+    { "value": null, "expected": "null" },
+    { "value": true, "expected": "true" },
+    { "value": 0, "expected": "0" },
+    { "value": -12, "expected": "-12" },
+    { "value": 1.0, "expected": "1" },
+    { "value": 0.92, "expected": "0.92" },
+    { "value": 1.5e-5, "expected": "0.000015" },
+    { "value": 1e-7, "expected": "1e-7" },
+    { "value": 1e21, "expected": "1e+21" },
+    { "value": 123456789012345680000, "expected": "123456789012345680000" },
+    { "value": "plain", "expected": "\"plain\"" },
+    { "value": "quote \" backslash \\ newline \n tab \t", "expected": "\"quote \\\" backslash \\\\ newline \\n tab \\t\"" },
+    { "value": "control \u0001 \u001f", "expected": "\"control \\u0001 \\u001f\"" },
+    { "value": "unicode é ‹redacted› 漢字", "expected": "\"unicode é ‹redacted› 漢字\"" },
+    { "value": [], "expected": "[]" },
+    { "value": {}, "expected": "{}" },
+    { "value": { "b": 1, "a": [1, { "d": 2, "c": 3 }], "A": "x", "_": null }, "expected": "{\"A\":\"x\",\"_\":null,\"a\":[1,{\"c\":3,\"d\":2}],\"b\":1}" },
+    { "value": { "é": 1, "z": 2 }, "expected": "{\"z\":2,\"é\":1}" }
+  ]
+}

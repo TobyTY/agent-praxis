@@ -1,0 +1,9 @@
+{
+  "description": "safe-mode message appears once per session",
+  "setup": "tampered",
+  "runs": 2,
+  "stdin": {
+    "session_id": "s1",
+    "source": "resume"
+  }
+}

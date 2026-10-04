@@ -1,0 +1,14 @@
+{
+  "exit": 0,
+  "stdout": {
+    "hookSpecificOutput": {
+      "hookEventName": "SessionStart",
+      "additionalContext": "Praxis is active for this project: 2 verified procedures available."
+    }
+  },
+  "spool": {
+    "kinds": [
+      "session_start"
+    ]
+  }
+}

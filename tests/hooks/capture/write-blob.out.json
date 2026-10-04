@@ -1,0 +1,17 @@
+{
+  "exit": 0,
+  "stdout": null,
+  "spool": {
+    "kinds": [
+      "tool_ok"
+    ],
+    "contains": [
+      "\"blob\":\"",
+      "a.ts"
+    ],
+    "excludes": [
+      "export const a"
+    ]
+  },
+  "blobs": 1
+}

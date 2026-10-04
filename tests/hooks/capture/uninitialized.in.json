@@ -1,0 +1,14 @@
+{
+  "description": "before init nothing is written",
+  "setup": "uninitialized",
+  "args": [
+    "tool_ok"
+  ],
+  "stdin": {
+    "session_id": "s1",
+    "tool_name": "Bash",
+    "tool_input": {
+      "command": "ls"
+    }
+  }
+}

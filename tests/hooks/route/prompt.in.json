@@ -1,0 +1,8 @@
+{
+  "description": "spools the prompt; injects nothing in Phase 0",
+  "stdin": {
+    "session_id": "s1",
+    "prompt_id": "p1",
+    "prompt": "add a dependency for date parsing"
+  }
+}

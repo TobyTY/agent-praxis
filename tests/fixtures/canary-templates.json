@@ -1,0 +1,49 @@
+{
+  "comment": "Inert redaction canaries (Part F.7, M.4). Only prefixes and character sets live here; the secret-shaped strings are assembled at test time with a seeded xorshift32 PRNG implemented identically in core/tests/canaries.py and packages/hooks/test/canaries.ts, so no secret-shaped literal is ever committed. 'secret' is the part that must never survive redaction.",
+  "seed": 20261004,
+  "charsets": {
+    "upper_digit": "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789",
+    "alnum": "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789",
+    "alnum_dash": "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-_",
+    "b64": "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/"
+  },
+  "templates": [
+    { "type": "aws", "parts": [["lit", "AKIA"], ["rand", "upper_digit", 16]], "secret": "all" },
+    { "type": "aws", "parts": [["lit", "ASIA"], ["rand", "upper_digit", 16]], "secret": "all" },
+    { "type": "github", "parts": [["lit", "ghp_"], ["rand", "alnum", 36]], "secret": "all" },
+    { "type": "github", "parts": [["lit", "gho_"], ["rand", "alnum", 36]], "secret": "all" },
+    { "type": "github", "parts": [["lit", "github_pat_"], ["rand", "alnum", 22], ["lit", "_"], ["rand", "alnum", 59]], "secret": "all" },
+    { "type": "gitlab", "parts": [["lit", "glpat-"], ["rand", "alnum_dash", 20]], "secret": "all" },
+    { "type": "slack", "parts": [["lit", "xoxb-"], ["rand", "alnum", 12], ["lit", "-"], ["rand", "alnum", 24]], "secret": "all" },
+    { "type": "stripe", "parts": [["lit", "sk_live_"], ["rand", "alnum", 24]], "secret": "all" },
+    { "type": "stripe", "parts": [["lit", "rk_test_"], ["rand", "alnum", 24]], "secret": "all" },
+    { "type": "anthropic", "parts": [["lit", "sk-ant-api03-"], ["rand", "alnum_dash", 80]], "secret": "all" },
+    { "type": "openai", "parts": [["lit", "sk-proj-"], ["rand", "alnum_dash", 48]], "secret": "all" },
+    { "type": "google", "parts": [["lit", "AIza"], ["rand", "alnum_dash", 35]], "secret": "all" },
+    { "type": "google", "parts": [["lit", "ya29."], ["rand", "alnum_dash", 40]], "secret": "all" },
+    { "type": "npm", "parts": [["lit", "npm_"], ["rand", "alnum", 36]], "secret": "all" },
+    { "type": "pypi", "parts": [["lit", "pypi-AgEIcHlwaS5vcmc"], ["rand", "alnum_dash", 60]], "secret": "all" },
+    { "type": "jwt", "parts": [["lit", "eyJ"], ["rand", "alnum_dash", 24], ["lit", ".eyJ"], ["rand", "alnum_dash", 40], ["lit", "."], ["rand", "alnum_dash", 32]], "secret": "all" },
+    { "type": "private_key", "parts": [["lit", "-----BEGIN RSA PRIVATE KEY-----\n"], ["rand", "b64", 64], ["lit", "\n"], ["rand", "b64", 64], ["lit", "\n-----END RSA PRIVATE KEY-----"]], "secret": "rand" },
+    { "type": "private_key", "parts": [["lit", "-----BEGIN OPENSSH PRIVATE KEY-----\n"], ["rand", "b64", 70], ["lit", "\n-----END OPENSSH PRIVATE KEY-----"]], "secret": "rand" },
+    { "type": "url_password", "parts": [["lit", "postgres://admin:"], ["rand", "alnum", 18], ["lit", "@db.example.com:5432/app"]], "secret": "rand" },
+    { "type": "url_password", "parts": [["lit", "https://deploy:"], ["rand", "alnum", 20], ["lit", "@git.example.com/repo.git"]], "secret": "rand" },
+    { "type": "bearer", "parts": [["lit", "Authorization: Bearer "], ["rand", "alnum", 40]], "secret": "rand" },
+    { "type": "kv", "parts": [["lit", "DB_PASSWORD="], ["rand", "alnum", 12]], "secret": "rand" },
+    { "type": "kv", "parts": [["lit", "export SECRET_TOKEN='"], ["rand", "alnum", 16], ["lit", "'"]], "secret": "rand" },
+    { "type": "kv", "parts": [["lit", "\"api_key\": \""], ["rand", "alnum", 20], ["lit", "\""]], "secret": "rand" },
+    { "type": "kv", "parts": [["lit", "PRIVATE_KEY_PASSPHRASE: "], ["rand", "alnum", 14]], "secret": "rand" },
+    { "type": "entropy", "parts": [["lit", "the value is "], ["rand", "alnum", 40]], "secret": "rand" }
+  ],
+  "contexts": [
+    "{c}",
+    "echo {c}",
+    "curl -s https://api.example.com --data '{c}'",
+    "line one\n{c}\nline three",
+    "config: {c};",
+    "[{c}]",
+    "Error: request failed with {c} (status 401)",
+    "  {c}  ",
+    "prefix-text {c} suffix-text"
+  ]
+}

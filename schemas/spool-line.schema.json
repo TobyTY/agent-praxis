@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/TobyTY/agent-praxis/schemas/spool-line.schema.json",
+  "title": "SpoolLine",
+  "description": "One line of the append-only spool written by hooks (Part E.6).",
+  "type": "object",
+  "required": ["v", "ts", "kind", "session_id"],
+  "properties": {
+    "v": { "type": "integer", "const": 1 },
+    "ts": { "type": "string", "description": "ISO-8601 UTC timestamp with milliseconds." },
+    "kind": {
+      "type": "string",
+      "enum": ["session_start", "prompt", "tool_ok", "tool_fail", "turn_end", "model_switch", "activation", "guard", "audit", "session_end"]
+    },
+    "session_id": { "type": "string" },
+    "turn": { "type": ["integer", "null"] },
+    "prompt_id": { "type": ["string", "null"] },
+    "project_id": { "type": ["string", "null"] },
+    "agent_id": { "type": ["string", "null"] },
+    "tool": { "type": ["string", "null"] },
+    "tool_use_id": { "type": ["string", "null"] },
+    "input": { "type": ["object", "null"] },
+    "outcome": { "type": ["object", "null"] },
+    "blob": { "type": ["string", "null"], "description": "sha256 of a payload stored under blobs/." },
+    "data": { "type": ["object", "null"], "description": "Kind-specific fields such as source, model, reason or text." }
+  },
+  "additionalProperties": false
+}

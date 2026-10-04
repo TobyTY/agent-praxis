@@ -1,0 +1,10 @@
+{
+  "description": "PRAXIS_DISABLE=1 exits before doing anything",
+  "env": {
+    "PRAXIS_DISABLE": "1"
+  },
+  "stdin": {
+    "session_id": "s1",
+    "source": "startup"
+  }
+}

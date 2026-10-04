@@ -1,0 +1,6 @@
+{
+  "exit": 0,
+  "stdout": {
+    "systemMessage": "Praxis is installed but not initialized, so nothing is captured. Run `praxis init` in a terminal to start."
+  }
+}

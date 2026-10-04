@@ -1,0 +1,9 @@
+{
+  "exit": 0,
+  "stdout": null,
+  "spool": {
+    "contains": [
+      "\"routable\":false"
+    ]
+  }
+}

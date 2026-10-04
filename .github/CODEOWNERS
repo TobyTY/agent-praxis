@@ -1,0 +1,11 @@
+# Security-relevant paths need the maintainer's review (THREAT_MODEL.md, T8).
+*                                   @TobyTY
+/packages/hooks/src/                @TobyTY
+/plugin/                            @TobyTY
+/schemas/redaction-rules.json       @TobyTY
+/core/praxis/capture/               @TobyTY
+/core/praxis/snapshot.py            @TobyTY
+/core/praxis/audit.py               @TobyTY
+/.github/                           @TobyTY
+/SECURITY.md                        @TobyTY
+/docs/THREAT_MODEL.md               @TobyTY

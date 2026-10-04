@@ -1,0 +1,8 @@
+{
+  "description": "before praxis init: no hint on resume",
+  "setup": "uninitialized",
+  "stdin": {
+    "session_id": "s1",
+    "source": "resume"
+  }
+}

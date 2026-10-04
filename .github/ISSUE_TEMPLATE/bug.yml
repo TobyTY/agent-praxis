@@ -1,0 +1,30 @@
+name: Bug report
+description: Something in Praxis behaves differently from the docs.
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: "Security issues go to a private advisory instead (see SECURITY.md). Do not paste secrets or unredacted traces."
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened, and what did you expect?
+    validations:
+      required: true
+  - type: textarea
+    id: repro
+    attributes:
+      label: Steps to reproduce
+    validations:
+      required: true
+  - type: textarea
+    id: doctor
+    attributes:
+      label: Output of `praxis doctor --json`
+      render: json
+  - type: input
+    id: versions
+    attributes:
+      label: Versions (praxis, `claude --version`, OS, Node, Python)
+    validations:
+      required: true

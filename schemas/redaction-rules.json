@@ -1,0 +1,34 @@
+{
+  "version": 1,
+  "token_format": "‹redacted:{type}:{hash8}›",
+  "comment": "Single source of truth for redaction (ADR 0004). Patterns must work in both JavaScript (flags u) and Python re. When a rule has 'group', the whole match must be covered by consecutive capture groups and only that group is replaced. Order matters: specific formats first.",
+  "rules": [
+    { "id": "pem_private_key", "type": "private_key", "pattern": "-----BEGIN [A-Z0-9 ]*PRIVATE KEY-----[\\s\\S]*?-----END [A-Z0-9 ]*PRIVATE KEY-----", "flags": "" },
+    { "id": "pem_private_key_truncated", "type": "private_key", "pattern": "-----BEGIN [A-Z0-9 ]*PRIVATE KEY-----[\\s\\S]*", "flags": "" },
+    { "id": "aws_access_key_id", "type": "aws", "pattern": "\\b(?:AKIA|ASIA|AGPA|AIDA|AROA|ANPA|ANVA|AIPA)[0-9A-Z]{16}\\b", "flags": "" },
+    { "id": "github_token", "type": "github", "pattern": "\\bgh[pousr]_[A-Za-z0-9]{36,255}\\b", "flags": "" },
+    { "id": "github_fine_grained", "type": "github", "pattern": "\\bgithub_pat_[A-Za-z0-9_]{22,255}\\b", "flags": "" },
+    { "id": "gitlab_token", "type": "gitlab", "pattern": "\\bglpat-[A-Za-z0-9_-]{20,}", "flags": "" },
+    { "id": "slack_token", "type": "slack", "pattern": "\\bxox[abposr]-[A-Za-z0-9-]{10,}", "flags": "" },
+    { "id": "slack_webhook", "type": "slack", "pattern": "https://hooks\\.slack\\.com/services/[A-Za-z0-9/]{20,}", "flags": "" },
+    { "id": "stripe_key", "type": "stripe", "pattern": "\\b(?:sk|rk|pk)_(?:live|test)_[A-Za-z0-9]{16,}", "flags": "" },
+    { "id": "anthropic_key", "type": "anthropic", "pattern": "\\bsk-ant-[A-Za-z0-9_-]{20,}", "flags": "" },
+    { "id": "openai_key", "type": "openai", "pattern": "\\bsk-(?:proj-|svcacct-|admin-)?[A-Za-z0-9_-]{20,}", "flags": "" },
+    { "id": "google_api_key", "type": "google", "pattern": "\\bAIza[0-9A-Za-z_-]{35}", "flags": "" },
+    { "id": "google_oauth_token", "type": "google", "pattern": "\\bya29\\.[0-9A-Za-z_-]{20,}", "flags": "" },
+    { "id": "npm_token", "type": "npm", "pattern": "\\bnpm_[A-Za-z0-9]{36}\\b", "flags": "" },
+    { "id": "pypi_token", "type": "pypi", "pattern": "\\bpypi-[A-Za-z0-9_-]{50,}", "flags": "" },
+    { "id": "jwt", "type": "jwt", "pattern": "\\beyJ[A-Za-z0-9_-]{8,}\\.eyJ[A-Za-z0-9_-]{8,}\\.[A-Za-z0-9_-]{8,}", "flags": "" },
+    { "id": "url_password", "type": "url_password", "pattern": "([A-Za-z][A-Za-z0-9+.-]*://[^\\s:/@]+:)([^\\s@/]+)(@)", "flags": "", "group": 2 },
+    { "id": "bearer", "type": "bearer", "pattern": "(\\b[Bb]earer\\s+)([A-Za-z0-9._~+/-]{16,}=*)", "flags": "", "group": 2 },
+    { "id": "key_value", "type": "kv", "pattern": "(\\b[A-Za-z0-9_.-]*(?:[Ss][Ee][Cc][Rr][Ee][Tt]|[Tt][Oo][Kk][Ee][Nn]|[Pp][Aa][Ss][Ss][Ww]|[Aa][Pp][Ii]_?[Kk][Ee][Yy]|[Pp][Rr][Ii][Vv][Aa][Tt][Ee])[A-Za-z0-9_.-]*[\"']?\\s*[=:]\\s*[\"']?)([^\\s\"'&;,‹]{4,})", "flags": "", "group": 2 }
+  ],
+  "entropy": {
+    "token_pattern": "[A-Za-z0-9+=_-]{24,}",
+    "min_bits_per_char": 4.2,
+    "require_classes": ["digit", "upper", "lower"],
+    "type": "entropy"
+  },
+  "sensitive_path_globs": [".env", ".env.*", "*.pem", "*.key", "id_*", ".npmrc", ".pypirc", "credentials", "credentials.*", "*.p12", "*.pfx"],
+  "sensitive_path_exceptions": [".env.example", ".env.sample", ".env.template", "id_*.pub"]
+}

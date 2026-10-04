@@ -1,0 +1,10 @@
+{
+  "description": "Stop: redacted, truncated assistant excerpt (cap from snapshot policy)",
+  "args": [
+    "turn_end"
+  ],
+  "stdin": {
+    "session_id": "s1",
+    "last_assistant_message": "I switched the install to pnpm because npm rewrote the lockfile, and the tests pass now."
+  }
+}

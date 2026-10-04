@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/TobyTY/agent-praxis/schemas/evidence-manifest.schema.json",
+  "title": "EvidenceManifest",
+  "description": "manifest.json of an evidence bundle (Part E.5). Used from Phase 1.",
+  "type": "object",
+  "required": ["card_id", "card_version", "model", "versions", "test_case_ids", "run_ids", "files"],
+  "properties": {
+    "card_id": { "type": "string" },
+    "card_version": { "type": "integer" },
+    "model": { "type": "string" },
+    "versions": { "$ref": "#/$defs/EvidenceVersions" },
+    "test_case_ids": { "type": "array", "items": { "type": "string" } },
+    "run_ids": { "type": "array", "items": { "type": "string" } },
+    "files": { "type": "object", "description": "Relative path to sha256." }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "EvidenceVersions": {
+      "type": "object",
+      "required": ["praxis", "claude_code"],
+      "properties": {
+        "praxis": { "type": "string" },
+        "claude_code": { "type": "string" }
+      },
+      "additionalProperties": false
+    }
+  }
+}

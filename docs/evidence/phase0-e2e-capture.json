@@ -1,0 +1,60 @@
+{
+  "claude_code": "2.1.248 (Claude Code)",
+  "model_requested": "haiku",
+  "duration_s": 13.8,
+  "cost_usd": 0.0310319,
+  "num_turns": 2,
+  "ingest": {
+    "ok": true,
+    "files": 0,
+    "lines": 0,
+    "malformed": 0,
+    "sessions": 0,
+    "turns": 0,
+    "events": 0,
+    "audits": 0
+  },
+  "sessions": [
+    {
+      "id": "d996fdd1-2ace-4f3c-afb0-bdb52e36c9ac",
+      "project_id": "prj_daa5d692f69a5e21",
+      "source": "startup",
+      "model": null,
+      "started_at": "2026-10-04T11:49:52.760Z",
+      "ended_at": "2026-10-04T11:50:02.228Z"
+    }
+  ],
+  "turns": [
+    {
+      "session_id": "d996fdd1-2ace-4f3c-afb0-bdb52e36c9ac",
+      "idx": 0,
+      "user_text": "Run exactly one shell command: echo praxis-e2e-ok. Then reply with one short sentence. For context only, my config line is DB_PASSWORD=‹redacted:kv:536b73a3›",
+      "assistant_excerpt": "Command executed. Ready for next task."
+    }
+  ],
+  "events": [
+    {
+      "kind": "tool_ok",
+      "tool": "Bash",
+      "input": {
+        "command": "echo praxis-e2e-ok"
+      }
+    }
+  ],
+  "checks": {
+    "claude_exit_zero": true,
+    "session_captured": true,
+    "project_id_set": true,
+    "prompt_captured": true,
+    "secret_redacted_in_prompt": true,
+    "secret_absent_from_spool": true,
+    "secret_absent_from_db": true,
+    "bash_tool_captured": true,
+    "assistant_excerpt_captured": true,
+    "audit_chain_ok": true
+  },
+  "observed": {
+    "session_end_captured": true
+  },
+  "home": null
+}

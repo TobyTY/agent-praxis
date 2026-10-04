@@ -1,0 +1,66 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/TobyTY/agent-praxis/schemas/snapshot.schema.json",
+  "title": "Snapshot",
+  "description": "Precompiled, HMAC-tagged state the hooks read (Part E.3).",
+  "type": "object",
+  "required": ["v", "generated_at", "db_version", "policy", "cards", "edges", "index", "hmac_sha256"],
+  "properties": {
+    "v": { "type": "integer", "const": 1 },
+    "generated_at": { "type": "string" },
+    "db_version": { "type": "integer" },
+    "policy": { "$ref": "#/$defs/SnapshotPolicy" },
+    "cards": { "type": "array", "items": { "$ref": "#/$defs/SnapshotCard" } },
+    "edges": { "type": "array", "items": { "$ref": "#/$defs/SnapshotEdge" } },
+    "index": { "type": "object" },
+    "hmac_sha256": { "type": "string" }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "SnapshotPolicy": {
+      "type": "object",
+      "required": ["mode", "protected_globs", "danger_rules", "admin_commands", "taint_on_webfetch", "store_assistant_text", "assistant_excerpt_chars"],
+      "properties": {
+        "mode": { "type": "string", "enum": ["minimal", "audit", "ask", "strict"] },
+        "store_assistant_text": { "type": "string", "enum": ["none", "redacted-truncated"] },
+        "assistant_excerpt_chars": { "type": "integer" },
+        "protected_globs": { "type": "array", "items": { "type": "string" } },
+        "danger_rules": { "type": "array", "items": { "type": "string" } },
+        "admin_commands": { "type": "array", "items": { "type": "string" } },
+        "taint_on_webfetch": { "type": "boolean" }
+      },
+      "additionalProperties": false
+    },
+    "SnapshotCard": {
+      "type": "object",
+      "required": ["id", "slug", "v", "status", "tier", "scope", "summary", "path", "caps", "caps_approved", "content_sha256", "evidence_label", "stale"],
+      "properties": {
+        "id": { "type": "string" },
+        "slug": { "type": "string" },
+        "v": { "type": "integer" },
+        "status": { "type": "string", "enum": ["probation", "active"] },
+        "tier": { "type": "string", "enum": ["T0", "T1", "T2", "T3"] },
+        "scope": { "type": "object" },
+        "summary": { "type": "string" },
+        "path": { "type": "string" },
+        "caps": { "type": "array", "items": { "type": "string" } },
+        "caps_approved": { "type": "boolean" },
+        "content_sha256": { "type": "string" },
+        "evidence_label": { "type": "string" },
+        "stale": { "type": "boolean" }
+      },
+      "additionalProperties": false
+    },
+    "SnapshotEdge": {
+      "type": "object",
+      "required": ["src", "dst", "type", "confidence"],
+      "properties": {
+        "src": { "type": "string" },
+        "dst": { "type": "string" },
+        "type": { "type": "string", "enum": ["conflicts", "supersedes", "requires", "specializes", "redundant"] },
+        "confidence": { "type": "number" }
+      },
+      "additionalProperties": false
+    }
+  }
+}

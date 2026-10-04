@@ -1,0 +1,10 @@
+{
+  "exit": 0,
+  "stdout": null,
+  "spool": {
+    "contains": [
+      "\"mcp_server\":{\"name\":\"github\",\"source\":\"user\"}",
+      "is:open"
+    ]
+  }
+}

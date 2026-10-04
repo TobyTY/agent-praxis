@@ -1,0 +1,16 @@
+{
+  "description": "shell failure: exit code parsed from the error string",
+  "args": [
+    "tool_fail"
+  ],
+  "stdin": {
+    "session_id": "s1",
+    "tool_name": "PowerShell",
+    "tool_use_id": "t2",
+    "tool_input": {
+      "command": "npm install"
+    },
+    "error": "Exit code 1\nnpm ERR! lockfile mismatch",
+    "is_interrupt": false
+  }
+}

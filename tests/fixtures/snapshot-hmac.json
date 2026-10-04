@@ -1,0 +1,64 @@
+{
+  "comment": "Test-only key. Verified by core/tests/test_snapshot.py and packages/hooks/test/snapshot.test.ts.",
+  "key_hex": "000102030405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f",
+  "snapshot": {
+    "v": 1,
+    "generated_at": "2026-10-04T00:00:00.000Z",
+    "db_version": 1,
+    "policy": {
+      "mode": "ask",
+      "protected_globs": [
+        "/home/u/.praxis/**",
+        "**/.claude/settings.json"
+      ],
+      "danger_rules": [
+        "git_push_force"
+      ],
+      "admin_commands": [
+        "praxis unlock"
+      ],
+      "taint_on_webfetch": false,
+      "store_assistant_text": "redacted-truncated",
+      "assistant_excerpt_chars": 1500
+    },
+    "cards": [
+      {
+        "id": "card_1",
+        "slug": "px-pnpm-not-npm",
+        "v": 3,
+        "status": "active",
+        "tier": "T0",
+        "scope": {
+          "kind": "project"
+        },
+        "summary": "this repo installs packages with pnpm; npm rewrites the lockfile ‹é›",
+        "path": "/home/u/.praxis/cards/px-pnpm-not-npm/SKILL.md",
+        "caps": [
+          "exec:pnpm install"
+        ],
+        "caps_approved": true,
+        "content_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+        "evidence_label": "5/5 vs 1/5",
+        "stale": false
+      }
+    ],
+    "edges": [
+      {
+        "src": "card_1",
+        "dst": "card_2",
+        "type": "conflicts",
+        "confidence": 0.92
+      }
+    ],
+    "index": {
+      "params": {
+        "k1": 1.2,
+        "b": 0.75
+      },
+      "avgdl": {
+        "name": 3.0
+      }
+    },
+    "hmac_sha256": "f65e4c12afca079867f2380e078a6fc7460585b2d154012f0ffe364e73a816f8"
+  }
+}

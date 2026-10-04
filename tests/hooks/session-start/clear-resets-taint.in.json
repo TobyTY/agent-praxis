@@ -1,0 +1,7 @@
+{
+  "description": "source clear writes a taint reset to the state log",
+  "stdin": {
+    "session_id": "s1",
+    "source": "clear"
+  }
+}

@@ -1,0 +1,4 @@
+{
+  "description": "unparseable stdin: exit 0, no output",
+  "stdin": "{not json"
+}

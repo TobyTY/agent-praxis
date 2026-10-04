@@ -1,0 +1,7 @@
+{
+  "description": "compaction does not reset taint (Part F.3)",
+  "stdin": {
+    "session_id": "s1",
+    "source": "compact"
+  }
+}

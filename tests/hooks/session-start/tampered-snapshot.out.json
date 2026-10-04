@@ -1,0 +1,18 @@
+{
+  "exit": 0,
+  "stdout": {
+    "systemMessage": "Praxis is in safe mode (snapshot HMAC mismatch): routing is off and only built-in protections apply. Run `praxis doctor`."
+  },
+  "spool": {
+    "kinds": [
+      "session_start",
+      "audit"
+    ],
+    "contains": [
+      "safe_mode_entered"
+    ]
+  },
+  "state_contains": [
+    "\"notice\":\"safe_mode\""
+  ]
+}

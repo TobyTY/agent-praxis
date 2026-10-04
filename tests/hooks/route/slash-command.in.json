@@ -1,0 +1,7 @@
+{
+  "description": "slash commands are captured but marked not routable",
+  "stdin": {
+    "session_id": "s1",
+    "prompt": "/review the open pull request"
+  }
+}

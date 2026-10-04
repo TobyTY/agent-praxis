@@ -1,0 +1,6 @@
+* text=auto eol=lf
+*.png binary
+*.gif binary
+plugin/dist/*.mjs linguist-generated=true
+packages/hooks/src/generated/** linguist-generated=true
+core/praxis/generated/** linguist-generated=true

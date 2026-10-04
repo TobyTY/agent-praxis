@@ -1,0 +1,12 @@
+{
+  "exit": 0,
+  "stdout": null,
+  "spool": {
+    "kinds": [
+      "model_switch"
+    ],
+    "contains": [
+      "\"to\":\"claude-opus-5\""
+    ]
+  }
+}

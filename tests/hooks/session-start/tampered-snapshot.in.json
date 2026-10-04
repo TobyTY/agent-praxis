@@ -1,0 +1,8 @@
+{
+  "description": "HMAC mismatch enters safe mode with one systemMessage and an audit fact",
+  "setup": "tampered",
+  "stdin": {
+    "session_id": "s1",
+    "source": "startup"
+  }
+}
