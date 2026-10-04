@@ -56,7 +56,7 @@ data and compacts the database so it does not linger in free pages.
 
 | Check | Result |
 |---|---|
-| Hook wall time p95, Windows, 200 runs (budget 180-250 ms) | 55-59 ms |
+| Hook wall time p95, 200 runs, GitHub runners (budgets: Linux/macOS 100-150 ms, Windows 180-250 ms) | Linux 25-27 ms, macOS 39-65 ms, Windows 67-89 ms |
 | Redaction canary corpus (234 secrets, 26 formats, 9 contexts) | 100% removed, Python and TypeScript byte-identical |
 | Redaction fuzzing | 10,000 inputs per language, no crash |
 | Golden hook tests | 28 cases |

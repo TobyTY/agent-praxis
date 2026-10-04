@@ -22,8 +22,8 @@ One phase at a time (Rule A1). Each phase ends at a gate; the maintainer approve
 
 | Criterion | Target | Result | Pass |
 |---|---|---|---|
-| Golden hook tests on Linux, macOS, Windows | all pass | 28 cases pass on Windows locally; Linux/macOS via CI matrix | see CI |
-| No-op hook wall p95 within Part L budgets | ≤ 150-250 ms (Windows) | 55-59 ms p95 on Windows, 200 runs | yes (Windows); Linux/macOS via perf CI |
+| Golden hook tests on Linux, macOS, Windows | all pass | 28 cases pass in CI on ubuntu, macos, windows x Node 20, 22 (run 37200552908) | yes |
+| No-op hook wall p95 within Part L budgets | Linux/macOS ≤ 100-150 ms, Windows ≤ 180-250 ms | perf CI, 200 runs, p95: Linux 25.5-27.3 ms, macOS 39.4-65.3 ms, Windows 67.5-89.2 ms (local Windows 55-59 ms) | yes |
 | Real Claude Code session captured and ingested | documented | `docs/evidence/phase0-e2e-capture.json`, 10/10 required checks | yes |
 | Redaction canary corpus | 100% | 234/234 in Python and TypeScript, identical output digest | yes |
 | `praxis forget --all` leaves no trace data | test | `test_forget_all_leaves_no_trace` greps every file under home, including the SQLite file after VACUUM | yes |
